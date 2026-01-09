@@ -1,0 +1,173 @@
+/* historiaStyles.css - Solo para esta página */
+
+body {
+  background: #f9f9f9;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.historia-main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.btn-regresar {
+  display: inline-block;
+  margin: 2rem 0;
+  padding: 0.8rem 1.5rem;
+  background: #0a1f0a;
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+.btn-regresar:hover {
+  background: #004d00;
+  transform: translateX(-8px);
+}
+
+h1 {
+  text-align: center;
+  color: #0a1f0a;
+  font-size: 3.2rem;
+  margin: 1rem 0 2rem;
+}
+
+.historia-texto {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  margin-bottom: 4rem;
+  line-height: 1.8;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.historia-texto p {
+  margin-bottom: 1.4rem;
+}
+
+/* Carrusel de camisetas */
+/* ... estilos anteriores (btn-regresar, h1, .historia-texto) mantienen igual ... */
+
+/* Carrusel mejorado */
+.carrusel-camiseta {
+  margin: 5rem 0;
+  position: relative;
+}
+
+.carrusel-camiseta h2 {
+  text-align: center;
+  color: #0a1f0a;
+  margin-bottom: 2.5rem;
+  font-size: 2.2rem;
+}
+
+.carrusel-container {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  height: 500px; /* ajusta según tus imágenes */
+  overflow: hidden;
+}
+
+.carrusel-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: all 0.7s cubic-bezier(0.25, 0.8, 0.25, 1);
+  text-align: center;
+}
+
+.carrusel-slide.active {
+  opacity: 1;
+  transform: translateX(0);
+  z-index: 5;
+}
+
+.carrusel-slide.prev-slide {
+  opacity: 0.4;
+  transform: translateX(-60%);
+  scale: 0.85;
+  z-index: 3;
+}
+
+.carrusel-slide.next-slide {
+  opacity: 0.4;
+  transform: translateX(60%);
+  scale: 0.85;
+  z-index: 3;
+}
+
+.carrusel-slide img {
+  max-width: 100%;
+  max-height: 80%;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  transition: transform 0.6s ease;
+}
+
+.carrusel-slide p {
+  margin-top: 1.5rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #444;
+  transition: color 0.4s ease;
+}
+
+/* Hover en el texto: verde oscuro */
+.carrusel-slide:hover p {
+  color: #0a1f0a;
+}
+
+/* Flechas - mejor posicionadas */
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(10, 31, 10, 0.75);
+  color: white;
+  border: none;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.prev:hover, .next:hover {
+  background: #004d00;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.prev { left: 20px; }
+.next { right: 20px; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .carrusel-container {
+    height: 380px;
+  }
+  
+  .prev, .next {
+    width: 50px;
+    height: 50px;
+    font-size: 1.6rem;
+  }
+  
+  .prev { left: 10px; }
+  .next { right: 10px; }
+}

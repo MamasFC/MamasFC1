@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Noticias - Mamas FC</title>
+  <!-- CSS principal del sitio (header negro, menú, etc.) -->
+  <link rel="stylesheet" href="styles.css">
+  <!-- CSS específico para noticias -->
+  <link rel="stylesheet" href="noticiastyle.css">
+</head>
+<body>
+
+  <!-- Header / barra negra igual que en inicio -->
+  <header>
+    <div class="logo">
+      <img src="../FotosInicio/White_Green_Gold_Modern_Football_Club_Badge_Logo__1_-removebg-preview.png" alt="Mamas FC Logo">
+      <h1>Mamas FC</h1>
+    </div>
+
+    <div class="menu-toggle" id="menuToggle">☰</div>
+
+    <nav>
+      <ul id="navMenu">
+        <li><a href="../index.html">INICIO</a></li>
+        <li><a href="../tabla.html">TABLA</a></li>
+        <li><a href="../jugadores.html">JUGADORES</a></li>
+        <li><a href="#" class="active">NOTICIAS</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="noticias-main">
+    <h1>Noticias de Mamas FC</h1>
+    <p class="subtitulo">Últimas novedades del equipo. ¡Mantente al tanto!</p>
+
+    <div class="noticias-grid">
+      <!-- Noticia 1 -->
+      <div class="noticia-card">
+        <div class="foto-wrapper">
+          <img src="FotosNoticia/Sharavolver.jpg" alt="Noticia 1" class="noticia-foto">
+        </div>
+        <div class="contenido">
+          <h2 class="titulo">🔄 Sharawy vuelve tras un retiro fugaz</h2>
+          <p class="texto">Luego de anunciar su retiro por un día, Sharawy sorprendió a todos decidiendo volver al equipo. Su regreso refuerza al plantel y demuestra que la pasión por Mamas FC siempre pesa más.</p>
+          <span class="autor">Escrito por: Duraznito • 05/01/2026</span>
+        </div>
+      </div>
+
+      <!-- Noticia 2 -->
+      <div class="noticia-card">
+        <div class="foto-wrapper">
+          <img src="FotosNoticia/abandono.jpg" alt="Noticia 2" class="noticia-foto">
+        </div>
+        <div class="contenido">
+          <h2 class="titulo">Caucho deja Mamas FC y se suma a Galaxy FC</h2>
+          <p class="texto">Caucho anunció su salida de Mamas FC para continuar su camino en Galaxy FC. Desde el club se le agradece su entrega y constancia, y se le desea el mayor de los éxitos en esta nueva etapa</p>
+          <span class="autor">Escrito por: Duraznito • 02/01/2026</span>
+        </div>
+      </div>
+
+      <!-- Agrega más noticias aquí (puedes repetir el bloque para tener varias) -->
+      <div class="noticia-card">
+        <div class="foto-wrapper">
+          <img src="FotosNoticia/lairaganador.jpg" alt="Noticia 3" class="noticia-foto">
+        </div>
+        <div class="contenido">
+          <h2 class="titulo">🏆 Final de la JRS: Laira se impone ante Mamas FC</h2>
+          <p class="texto">Mamas FC disputó la final de la JRS dejando todo en la cancha, pero Laira logró imponerse y quedarse con el título. A pesar del resultado, el equipo demostró compromiso, nivel y un gran futuro por delante.</p>
+          <span class="autor">Escrito por: Duraznito • 31/12/2025</span>
+        </div>
+      </div>
+
+      <!-- ... agrega tantas como quieras ... -->
+    </div>
+  </main>
+
+  <!-- Script del menú hamburguesa -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const toggle = document.getElementById('menuToggle');
+      const menu = document.getElementById('navMenu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', () => menu.classList.toggle('active'));
+      }
+    });
+  </script>
+
+</body>
+</html>

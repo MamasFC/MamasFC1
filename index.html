@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mamas FC - Sitio Oficial</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="FotosInicio/White_Green_Gold_Modern_Football_Club_Badge_Logo__1_-removebg-preview.png" alt="Mamas FC Logo">
+    <h1>Mamas FC</h1>
+  </div>
+
+  <div class="menu-toggle" id="menuToggle">☰</div>
+
+  <nav>
+    <ul id="navMenu">
+      <li><a href="#">INICIO</a></li>
+      <li><a href="tabla.html">TABLA</a></li>
+      <li><a href="jugadores.html">JUGADORES</a></li>
+      <li><a href="noticias.html">NOTICIAS</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="hero">
+  
+
+  <div class="welcome-text">
+    <h2>Bienvenidos al Sitio Oficial de Mamas FC</h2>
+   <a href="historia.html" class="btn historia-btn">Conoce Nuestra Historia</a>
+  </div>
+
+  <div class="matches-container">
+  <!-- Último partido -->
+  <div class="match-card">
+    <div class="match-header">
+      <h3>Último Partido</h3>
+      <span class="match-date">05 Ene 2026</span>
+    </div>
+    
+    <div class="scoreboard">
+      <div class="team">
+        <div class="team-logo-wrapper">
+          <img src="FotosInicio/White_Black_Gold_Circle_Modern_Football_Club_Logo-removebg-preview.png" alt="Mamas FC" class="team-logo">
+        </div>
+        <span class="team-name">Mamas FC</span>
+      </div>
+
+      <div class="result">
+        <span class="score home">3</span>
+        <span class="vs">-</span>
+        <span class="score away">1</span>
+      </div>
+
+      <div class="team">
+        <div class="team-logo-wrapper">
+          <img src="FotosTabla/mch.jpg" alt="Rival X" class="team-logo">
+        </div>
+        <span class="team-name">Galaxy FC</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Próximo partido -->
+  <div class="match-card upcoming">
+    <div class="match-header">
+      <h3>Próximo Partido</h3>
+      <span class="match-date">12 Ene 2026 · 21:00</span>
+    </div>
+    
+    <div class="scoreboard">
+      <div class="team">
+        <div class="team-logo-wrapper">
+          <img src="FotosInicio/White_Black_Gold_Circle_Modern_Football_Club_Logo-removebg-preview.png" alt="Mamas FC" class="team-logo">
+        </div>
+        <span class="team-name">Mamas FC</span>
+      </div>
+
+      <div class="result">
+        <span class="vs">VS</span>
+      </div>
+
+      <div class="team">
+        <div class="team-logo-wrapper">
+          <img src="FotosTabla/loan.png" alt="Los Cracks FC" class="team-logo">
+        </div>
+        <span class="team-name">Loan FC</span>
+      </div>
+    </div>
+  </div>
+</div>
+</main>
+
+<!-- JAVASCRIPT DEL MENÚ - OBLIGATORIO AL FINAL -->
+<script>
+  // Esperamos que todo el HTML esté cargado
+  window.addEventListener('load', function() {
+    const toggle = document.getElementById('menuToggle');
+    const menu = document.getElementById('navMenu');
+
+    if (!toggle || !menu) {
+      alert('Error: No se encuentran el botón o el menú. Revisa los IDs');
+      return;
+    }
+
+    toggle.addEventListener('click', function() {
+      menu.classList.toggle('active');
+      // Esto te ayuda a depurar: quita el comentario si querés ver en consola
+      // console.log('Menú abierto?', menu.classList.contains('active'));
+    });
+
+    // Cerrar al clickear un link
+    menu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => menu.classList.remove('active'));
+    });
+  });
+</script>
+
+</body>
+</html>

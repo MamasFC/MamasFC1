@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nuestra Historia - Mamas FC</title>
+  <link rel="stylesheet" href="styles.css"> <!-- Tu CSS principal (colores, fuentes, animaciones) -->
+  <link rel="stylesheet" href="historiastyle.css"> <!-- CSS específico -->
+</head>
+<body>
+
+  <main class="historia-main">
+    <!-- Botón de regresar (único elemento superior) -->
+    <a href="../index.html" class="btn-regresar">← Regresar al Inicio</a>
+
+    <h1>Nuestra Historia</h1>
+
+    <section class="historia-texto">
+      <p>Mamas FC nació en 2015 a partir de la amistad de un grupo de amigos que compartían partidas de Counter-Strike, sin presiones y con el simple objetivo de divertirse y competir sanamente. Con el paso del tiempo, el proyecto quedó en pausa, pero el espíritu del equipo nunca se perdió.</p>
+      
+      <p>En 2024, Mamas FC volvió a la vida gracias a Duraznito, Franky y Gio, esta vez en HaxBall, retomando la esencia original: compañerismo, pasión y ganas de crecer. Lo que comenzó como un reencuentro entre amigos se transformó nuevamente en un equipo con identidad propia, marcado por el verde, el compromiso y el deseo constante de mejorar.</p>
+      
+      <p>Desde entonces, el club ha vivido partidos inolvidables, finales intensas, triunfos y derrotas que fortalecieron al grupo dentro y fuera de la cancha. Cada jugador que pasó dejó su huella, y cada temporada sumó un nuevo capítulo a esta historia.</p>
+   
+       <p>Hoy, Mamas FC es más que un equipo: es una familia. Y esto recién empieza. 💚</p>
+    </section>
+
+    <!-- ... header y el resto igual ... -->
+
+<section class="carrusel-camiseta">
+  <h2>Nuestras Camisetas a lo largo del tiempo</h2>
+  
+  <div class="carrusel-container">
+    <!-- Slides (agrega todos los que tengas) -->
+    <div class="carrusel-slide">
+      <img src="FotosCamis/Primera.jpg" alt="Camiseta 2015">
+      <p>2025 - La original</p>
+    </div>
+    
+    <div class="carrusel-slide">
+      <img src="FotosCamis/Segunda.jpg" alt="Camiseta 2017">
+      <p>2025 - La camiseta suplente</p>
+    </div>
+    
+    <div class="carrusel-slide">
+      <img src="FotosCamis/TerceraAlter.jpg" alt="Camiseta 2019">
+      <p>2025 - La Alternativa</p>
+    </div>
+
+     <div class="carrusel-slide">
+      <img src="FotosCamis/ClasicaNueva.jpg" alt="Camiseta 2019">
+      <p>2025 - Cambio de Escudo</p>
+    </div>
+
+     <div class="carrusel-slide">
+      <img src="FotosCamis/RuudCamis.jpg" alt="Camiseta 2019">
+      <p>2026 - Local Actual</p>
+    </div>
+
+     <div class="carrusel-slide">
+      <img src="FotosCamis/DuraznoColor.jpg" alt="Camiseta 2019">
+      <p>2026 - Durazno Referencia</p>
+    </div>
+    
+    <!-- ... más slides ... -->
+  </div>
+
+  <!-- Flechas -->
+  <button class="prev" onclick="cambiarSlide(-1)">❮</button>
+  <button class="next" onclick="cambiarSlide(1)">❯</button>
+</section>
+
+<!-- Script del carrusel (mejorado) -->
+<script>
+  let slideIndex = 0;
+  const slides = document.getElementsByClassName("carrusel-slide");
+
+  function mostrarSlide(n) {
+    // Normalizar índice
+    if (n >= slides.length) n = 0;
+    if (n < 0) n = slides.length - 1;
+
+    // Quitar clase active a todos
+    for (let i = 0; i < slides.length; i++) {
+      slides[i].classList.remove("active", "prev-slide", "next-slide");
+    }
+
+    // Marcar el actual como active
+    slides[n].classList.add("active");
+
+    // Mostrar anterior y siguiente con fade (si existen)
+    const prev = (n - 1 + slides.length) % slides.length;
+    const next = (n + 1) % slides.length;
+
+    slides[prev].classList.add("prev-slide");
+    slides[next].classList.add("next-slide");
+
+    slideIndex = n;
+  }
+
+  function cambiarSlide(n) {
+    slideIndex += n;
+    mostrarSlide(slideIndex);
+  }
+
+  // Inicializar
+  mostrarSlide(slideIndex);
+
+  // Opcional: autoplay cada 5 segundos
+  // setInterval(() => cambiarSlide(1), 5000);
+</script>
+
+</body>
+</html>
