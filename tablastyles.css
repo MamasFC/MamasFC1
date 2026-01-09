@@ -79,14 +79,14 @@ nav a::after {
   left: 50%;
   width: 0;
   height: 3px;
-  background-color: #00ff00;
+  background-color: #798514;
   transition: all 0.4s ease;
   transform: translateX(-50%);
 }
 
 nav a:hover,
 nav a:hover::after {
-  color: #00ff00;
+  color:  #798514;
 }
 
 nav a:hover::after {
