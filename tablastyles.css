@@ -6,7 +6,7 @@
 
 body {
   background: #f9f9f9;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
 
 /* Header (igual al de inicio) */
@@ -42,7 +42,7 @@ header {
 .menu-toggle {
   display: none;
   color: white;
-  font-size: 2.4rem;
+  font-size: 2.5rem;
   cursor: pointer;
   user-select: none;
   position: absolute;
@@ -70,9 +70,7 @@ nav a {
   padding-bottom: 6px;
 }
 
-nav a.active {
-  color: #00ff00;
-}
+
 
 nav a::after {
   content: '';
@@ -272,12 +270,41 @@ main, .hero, .tabla-main, .jugadores-main, .noticias-main {
 }
 
 /* En móvil, más rápido para no esperar mucho */
+/* Menú desplegable en móvil - Asegurarse de que quede encima de TODO */
 @media (max-width: 768px) {
-  @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  main, .hero, .tabla-main, .jugadores-main, .noticias-main {
-    animation-duration: 0.9s;
-  }
+    nav .list {
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 100px;
+        width: 100%;
+        height: calc(100vh - 100px);
+        background: rgba(14, 100, 6, 0.98) !important; /* Verde oscuro opaco */
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 25px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease;
+        z-index: 9999 !important;          /* ¡Muy alto! Encima de todo */
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    /* Cuando está abierto */
+    #toggle:checked ~ .list {
+        max-height: 100vh;
+    }
+
+    /* Asegurarse de que el nav principal también tenga alto z-index */
+    nav {
+        z-index: 10000 !important;
+    }
+
+    /* Opcional: oscurecer un poco el resto de la página cuando el menú está abierto */
+    body.menu-open .tabla-section,
+    body.menu-open .partidos-section {
+        opacity: 0.5;
+        pointer-events: none;
+    }
 }

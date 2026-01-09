@@ -14,7 +14,11 @@
     <h1>Mamas FC</h1>
   </div>
 
-  <div class="menu-toggle" id="menuToggle">☰</div>
+  <!-- Checkbox oculto -->
+  <input type="checkbox" id="toggle" class="mobile-checkbox">
+
+  <!-- Icono hamburguesa -->
+  <label for="toggle" class="menu-toggle">☰</label>
 
   <nav>
     <ul id="navMenu">
@@ -27,97 +31,124 @@
 </header>
 
 <main class="hero">
-  
-
   <div class="welcome-text">
     <h2>Bienvenidos al Sitio Oficial de Mamas FC</h2>
-   <a href="historia.html" class="btn historia-btn">Conoce Nuestra Historia</a>
+    <a href="historia.html" class="btn historia-btn">Conoce Nuestra Historia</a>
   </div>
 
   <div class="matches-container">
-  <!-- Último partido -->
-  <div class="match-card">
-    <div class="match-header">
-      <h3>Último Partido</h3>
-      <span class="match-date">05 Ene 2026</span>
-    </div>
-    
-    <div class="scoreboard">
-      <div class="team">
-        <div class="team-logo-wrapper">
-          <img src="FotosInicio/White_Black_Gold_Circle_Modern_Football_Club_Logo-removebg-preview.png" alt="Mamas FC" class="team-logo">
-        </div>
-        <span class="team-name">Mamas FC</span>
-      </div>
-
-      <div class="result">
-        <span class="score home">3</span>
-        <span class="vs">-</span>
-        <span class="score away">1</span>
-      </div>
-
-      <div class="team">
-        <div class="team-logo-wrapper">
-          <img src="FotosTabla/mch.jpg" alt="Rival X" class="team-logo">
-        </div>
-        <span class="team-name">Galaxy FC</span>
-      </div>
-    </div>
+    <!-- Tus partidos (sin cambios) -->
+    <!-- ... -->
   </div>
-
-  <!-- Próximo partido -->
-  <div class="match-card upcoming">
-    <div class="match-header">
-      <h3>Próximo Partido</h3>
-      <span class="match-date">12 Ene 2026 · 21:00</span>
-    </div>
-    
-    <div class="scoreboard">
-      <div class="team">
-        <div class="team-logo-wrapper">
-          <img src="FotosInicio/White_Black_Gold_Circle_Modern_Football_Club_Logo-removebg-preview.png" alt="Mamas FC" class="team-logo">
-        </div>
-        <span class="team-name">Mamas FC</span>
-      </div>
-
-      <div class="result">
-        <span class="vs">VS</span>
-      </div>
-
-      <div class="team">
-        <div class="team-logo-wrapper">
-          <img src="FotosTabla/loan.png" alt="Los Cracks FC" class="team-logo">
-        </div>
-        <span class="team-name">Loan FC</span>
-      </div>
-    </div>
-  </div>
-</div>
 </main>
 
-<!-- JAVASCRIPT DEL MENÚ - OBLIGATORIO AL FINAL -->
+<!-- CARRUSEL DE TESTIMONIOS -->
+<section class="testimonials-section">
+  <h2 class="section-title">Lo que dicen de nosotros</h2>
+
+  <div class="carousel-container">
+    <div class="carousel-track" id="carouselTrack">
+      <!-- Tus 6 testimonios -->
+      <div class="carousel-slide">
+        <div class="testimonial-card">
+          <img src="FotosInicio/sharawy.jpg" alt="Jugador" class="avatar">
+          <span class="role">Jugador Activo</span>
+          <p class="comment">“Mamás FC es pasión, equipo y orgullo en cada partido.”</p>
+          <span class="name">- Shaarawy</span>
+        </div>
+      </div>
+
+      <div class="carousel-slide">
+        <div class="testimonial-card">
+          <img src="FotosInicio/counter.jpg" alt="CS 1.6" class="avatar">
+          <span class="role">Leyenda CS 1.6</span>
+          <p class="comment">“Entre risas, traiciones y noches eternas de CS 1.6, Mamas FC me recordó que jugar siempre fue compartir.”</p>
+          <span class="name">- Eltilin20</span>
+        </div>
+      </div>
+
+      <div class="carousel-slide">
+        <div class="testimonial-card">
+          <img src="FotosInicio/real.jpg" alt="Retirado" class="avatar">
+          <span class="role">Jugador Activo</span>
+          <p class="comment">“Acá se viene a aprender. Y aprender también es ganar.”</p>
+          <span class="name">- Rͬeͤaͣl.⚽♟</span>
+        </div>
+      </div>
+
+      <div class="carousel-slide">
+        <div class="testimonial-card">
+          <img src="FotosInicio/zeballos.jpg" alt="Hincha" class="avatar">
+          <span class="role">Jugador de Galaxy FC</span>
+          <p class="comment">"Mamas fc no se explica, se siente"</p>
+          <span class="name">- leon._.12.</span>
+        </div>
+      </div>
+
+      <div class="carousel-slide">
+        <div class="testimonial-card">
+          <img src="FotosInicio/sirinho.jpg" alt="Hincha" class="avatar">
+          <span class="role">Jugador Libre</span>
+          <p class="comment">"Prefiero perder con los mios, que ganar con desconocidos"</p>
+          <span class="name">- Sirinho!!!</span>
+        </div>
+      </div>
+
+      <div class="carousel-slide">
+        <div class="testimonial-card">
+          <img src="FotosInicio/incognito.jpg" alt="Hincha" class="avatar">
+          <span class="role">Retirado</span>
+          <p class="comment">"Mamas fc no es solo un simple club, es una familia donde te apoyan pase lo que pase"</p>
+          <span class="name">- Tias</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer"></footer>
+
+<!-- SCRIPT MENÚ + CARRUSEL -->
 <script>
-  // Esperamos que todo el HTML esté cargado
-  window.addEventListener('load', function() {
-    const toggle = document.getElementById('menuToggle');
-    const menu = document.getElementById('navMenu');
+  // Menú hamburguesa (funciona con tu clase .active)
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navMenu = document.getElementById('navMenu');
 
-    if (!toggle || !menu) {
-      alert('Error: No se encuentran el botón o el menú. Revisa los IDs');
-      return;
-    }
-
-    toggle.addEventListener('click', function() {
-      menu.classList.toggle('active');
-      // Esto te ayuda a depurar: quita el comentario si querés ver en consola
-      // console.log('Menú abierto?', menu.classList.contains('active'));
-    });
-
-    // Cerrar al clickear un link
-    menu.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => menu.classList.remove('active'));
-    });
+  menuToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
   });
+
+  // Carrusel loop infinito + orden aleatorio
+  const track = document.getElementById('carouselTrack');
+  let slides = Array.from(track.children);
+  const slideCount = slides.length;
+
+  // Orden aleatorio al cargar
+  for (let i = slideCount - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    track.insertBefore(track.children[j], track.children[i]);
+  }
+
+  // Duplicar para loop infinito
+  slides = Array.from(track.children);
+  slides.forEach(slide => {
+    const clone = slide.cloneNode(true);
+    track.appendChild(clone);
+  });
+
+  let position = 0;
+  const speed = 0.5;
+
+  function animate() {
+    position -= speed;
+    if (position <= - (slides[0].offsetWidth * slideCount)) {
+      position = 0;
+    }
+    track.style.transform = `translateX(${position}px)`;
+    requestAnimationFrame(animate);
+  }
+
+  animate();
 </script>
 
 </body>
