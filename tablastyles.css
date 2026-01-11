@@ -36,7 +36,7 @@ header {
   font-size: 2.2rem;
   margin: 0;
   text-transform: uppercase;
-  letter-spacing: 1.5px;
+  
 }
 
 .menu-toggle {
@@ -217,6 +217,7 @@ h1 {
 
 .resultado.ganado { color: #00cc00; font-weight: bold; }
 .resultado.empatado { color: #ffaa00; font-weight: bold; }
+.resultado.perdido { color: #cf0606; font-weight: bold; }
 
 /* Responsive */
 @media (max-width: 980px) {
@@ -307,4 +308,58 @@ main, .hero, .tabla-main, .jugadores-main, .noticias-main {
         opacity: 0.5;
         pointer-events: none;
     }
+}
+
+/* Animación SOLO en los bordes - pulso verde oscuro sutil */
+.posiciones table,
+.ultimos,
+.proximos {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  background: white; /* mantiene tu relleno original */
+}
+
+/* Borde animado (solo el contorno) */
+.posiciones table::after,
+.ultimos::after,
+.proximos::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border: 3px solid transparent;
+  border-radius: 12px;
+  background: 
+    linear-gradient(90deg, transparent 0%, #0a1f0a 30%, #117f07 50%, #0a1f0a 70%, transparent 100%) border-box;
+  background-size: 300% 300%;
+  animation: borderPulse 5s ease-in-out infinite;
+  mask: 
+    linear-gradient(#fff 0 0) padding-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  z-index: 1;
+}
+
+/* Animación de pulso/luz que recorre los bordes */
+@keyframes borderPulse {
+  0%   { background-position: 0% 50%; opacity: 0.6; }
+  50%  { background-position: 100% 50%; opacity: 1; }
+  100% { background-position: 0% 50%; opacity: 0.6; }
+}
+
+/* Efecto hover (opcional: acelera y brilla más) */
+.posiciones table:hover::after,
+.ultimos:hover::after,
+.proximos:hover::after {
+  animation-duration: 3s;
+  opacity: 1;
+}
+
+/* Aseguramos que el contenido quede por encima del borde */
+.posiciones table,
+.ultimos,
+.proximos {
+  z-index: 2;
 }
