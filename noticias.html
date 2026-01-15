@@ -73,6 +73,44 @@
 
       <!-- ... agrega tantas como quieras ... -->
     </div>
+<!-- Sección Mejor Gol - Minimalista -->
+<div class="best-goal-vote">
+  <h2>El Mejor Gol Hasta Ahora</h2>
+  <p class="subtitulo-voto">Votá por tu favorito. Solo un voto por navegador.</p>
+
+  <div class="goals-grid">
+    <!-- Gol 1 -->
+    <div class="goal-option">
+      <img src="FotosJugadores/MAMAS FC (4).jpg" alt="Jugador 1" class="player-avatar" onclick="openGolModal('gol1')">
+      <div class="player-info">
+        <h3>Caucho</h3>
+        <span class="role">Delantero</span>
+      </div>
+      <button class="vote-btn" onclick="vote('gol1')">Votar</button>
+    </div>
+
+    <!-- Gol 2 -->
+    <div class="goal-option">
+      <img src="FotosJugadores/MAMAS FC (13).jpg" alt="Jugador 2" class="player-avatar" onclick="openGolModal('gol2')">
+      <div class="player-info">
+        <h3>Sarah</h3>
+        <span class="role">Delantero</span>
+      </div>
+      <button class="vote-btn" onclick="vote('gol2')">Votar</button>
+    </div>
+  </div>
+
+  <p id="vote-result" class="vote-message"></p>
+</div>
+
+<!-- Modal grisáceo (pantalla completa al tocar foto) -->
+<div id="gol-modal" class="gol-modal">
+  <div class="modal-content">
+    <span class="close-modal" onclick="closeGolModal()">×</span>
+    <div id="modal-video-container"></div>
+  </div>
+</div>
+    
   </main>
 
   <!-- Script del menú hamburguesa -->
@@ -85,6 +123,49 @@
       }
     });
   </script>
+<script>
+// Abrir modal con video
+function openGolModal(golId) {
+  const modal = document.getElementById('gol-modal');
+  const container = document.getElementById('modal-video-container');
+  
+  // Cambiá estos IDs por los tuyos reales de YouTube
+  const videos = {
+    'gol1': '<iframe width="100%" height="100%" src="https://www.youtube.com/embed/3rG-hQHo5aE?si=BC_hGGT0afL3AILE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+    'gol2': '<iframe width="100%" height="100%" src="https://www.youtube.com/embed/WIu1JE__Nvc?si=vfDWlWtPwaJnaNKQ"  frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
+  };
 
+  container.innerHTML = videos[golId] || '<p style="color:white;padding:30px;font-size:1.2rem;">Video no disponible</p>';
+  modal.classList.add('active');
+}
+
+// Cerrar modal
+function closeGolModal() {
+  document.getElementById('gol-modal').classList.remove('active');
+  document.getElementById('modal-video-container').innerHTML = '';
+}
+
+// Votación (1 voto por navegador)
+function vote(gol) {
+  if (localStorage.getItem('votedBestGol')) {
+    document.getElementById('vote-result').textContent = '¡Ya votaste! Gracias igual 💚';
+    document.getElementById('vote-result').style.opacity = '1';
+    return;
+  }
+
+  localStorage.setItem('votedBestGol', gol);
+  document.getElementById('vote-result').textContent = `¡Votaste por el gol de ${gol === 'gol1' ? 'Jugador 1' : 'Jugador 2'}!`;
+  document.getElementById('vote-result').style.opacity = '1';
+}
+
+// Cerrar con clic fuera o ESC
+document.getElementById('gol-modal')?.addEventListener('click', e => {
+  if (e.target === e.currentTarget) closeGolModal();
+});
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeGolModal();
+});
+</script>
 </body>
 </html>
