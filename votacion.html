@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Votación Mamas FC</title>
+  <link rel="stylesheet" href="votacion.css">
+</head>
+<body>
+
+  <!-- Barra superior -->
+  <header class="top-bar">
+    <div class="club-logo">
+      <img src="FotosInicio/White_Green_Gold_Modern_Football_Club_Badge_Logo__1_-removebg-preview.png" alt="Escudo Mamas FC" class="escudo">
+      <h1>Mamas FC</h1>
+    </div>
+  </header>
+
+  <!-- Logo watermark (brilla al hover) -->
+  <div class="watermark"></div>
+
+  <main>
+    <!-- Videos de goles -->
+    <section class="videos-section">
+      <h2>Goles del Partido</h2>
+      <p class="intro">Mirá los videos y votá en Discord</p>
+
+      <div class="videos-grid">
+        <!-- Gol 1 -->
+        <div class="video-card">
+          <div class="video-wrapper">
+            <video controls muted loop>
+              <source src="videos/gol1.mp4" type="video/mp4">
+            </video>
+          </div>
+          <h3>Gol 1</h3>
+          <p>Min 12' vs Galaxy FC</p>
+        </div>
+
+        <!-- Gol 2 -->
+        <div class="video-card">
+          <div class="video-wrapper">
+            <video controls muted loop>
+              <source src="videos/gol2.mp4" type="video/mp4">
+            </video>
+          </div>
+          <h3>Gol 2</h3>
+          <p>Min 22' vs Loan FC</p>
+        </div>
+
+        <!-- Gol 3 -->
+        <div class="video-card">
+          <div class="video-wrapper">
+            <video controls muted loop>
+              <source src="videos/gol3.mp4" type="video/mp4">
+            </video>
+          </div>
+          <h3>Gol 3</h3>
+          <p>Min 1' vs Spartans</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Separador -->
+    <div class="separator">
+  <span>Votos a Jugadores</span>
+</div>
+
+
+    <!-- Podio -->
+    <section class="podio-section">
+      <h2>Podio de MVP</h2>
+      <p class="intro">Orden de izquierda a derecha: más votos → menos votos</p>
+
+      <div id="podio-grid" class="podio-grid"></div>
+
+        <!-- Podio generado por JS -->
+        
+      </div>
+    </section>
+  </main>
+
+  <script src="votacion.js"></script>
+</body>
+</html>
