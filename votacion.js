@@ -2,9 +2,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const podioGrid = document.getElementById("podio-grid");
 
   const players = [
+    { name: "Robinho", votos: 3, escalones: 3 },
+    { name: "Ruud", votos: 1, escalones: 2 },
+    { name: "Campera", votos: 1, escalones: 2 },
     { name: "Durazno", votos: 0, escalones: 1 },
-    { name: "Ruud", votos: 0, escalones: 1 },
-    { name: "Campera", votos: 0, escalones: 1 },
     { name: "Lux", votos: 0, escalones: 1 },
     { name: "DPL", votos: 0, escalones: 1 },
     { name: "Aleman", votos: 0, escalones: 1 },
@@ -12,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     { name: "Gersinho", votos: 0, escalones: 1 },
     { name: "Bnnx", votos: 0, escalones: 1 },
     { name: "Hellfire", votos: 0, escalones: 1 },
-    { name: "Jugador 11", votos: 0, escalones: 1 }
+    
   ];
 
   let html = "";
@@ -39,3 +40,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
   podioGrid.innerHTML = html;
 });
+
